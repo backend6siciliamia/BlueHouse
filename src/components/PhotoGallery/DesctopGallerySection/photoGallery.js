@@ -9,6 +9,7 @@ import MyModal from "./Mymodal";
 import "./PhotoGallery.css";
 import Button from "../../Shared/Button/Button";
 import img from "../../../images/ReviewSlider/shevron-right.svg"
+import useBreakpoints from "../../../Styles/useBreakpoints";
 const useStyles = makeStyles((theme) => ({
   root: (props) => ({
     display: "flex",
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       flexDirection:"column",
-      minWidth: "360px",
+      minWidth: "100%",
     },
   }),
 
@@ -63,11 +64,9 @@ const useStyles = makeStyles((theme) => ({
       overflow: "hidden", 
       padding: "4px",
       width: "100%",
-      gap:"60px",
-      marginLeft:"5px"
-      // gap: "0%",
-      // flexWrap: "nowrap",
-      // justifyContent: "space-evenly",
+      gap: "0%",
+      display:"flex",
+      justifyContent: "space-between",
       // paddingLeft: "3%",
     },
   }),
@@ -88,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
       transform:"none"
       },
     [theme.breakpoints.down("xs")]: {
-      marginLeft:"3%"
+      marginLeft:"3%",
     },
   }),
   category: {
@@ -100,9 +99,13 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "0em",
     marginRight: "auto",
     [theme.breakpoints.down("xs")]: {
-      fontSize: "14px",
-      fontWeight: 400,
-      // marginLeft: "14px",
+      position:"absolute",
+      marginLeft:"20%",
+      marginTop:"60%",
+      fontSize: "32px",
+      minWidth:"190px",
+      display:"flex",
+      justifyContent:"center"
     },
   },
   actionStyle: {
@@ -156,7 +159,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     background:
       "linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.25) 100%)",
-
+    [theme.breakpoints.down("xs")]: {
+        minWidth: "100%",
+        height: "100%",
+    },
     [theme.breakpoints.down("md")]: {
       "& div:first-child": {
         width: "100%",
@@ -243,11 +249,11 @@ export default function PhotoGallery({
   
   const prevSlide = ()=>{
     const section = document.getElementById('imagesContainer')
-    section.scrollBy(-440,0)
+    section.scrollBy(-375,0)
   }
   const nextSlide = (e)=>{
     const section = document.getElementById('imagesContainer')
-    section.scrollBy(440,0)
+    section.scrollBy(375,0)
   }
   const {
     hoverPart,
@@ -299,7 +305,7 @@ export default function PhotoGallery({
       );
     });
   };
-
+  const { isMobile } = useBreakpoints();
   return (
     <div id={id} onClick={() => openSliderOnClick && openSliderOnClick(true)}>
       <Element name={id} >
@@ -381,8 +387,8 @@ export default function PhotoGallery({
                         />
                       </div>
                     )}
-                    <img alt="ph" src={background} className={hoverImage} />
-                    <Typography className={clsx(styling, category)} style={{color:"#1D3967"}}>
+                    <img alt="ph" src={background} className={hoverImage} style={{width:"94%"}} />
+                    <Typography className={clsx(styling, category)} style={isMobile?{color:"white"}:{color:"#1D3967"}}>
                       <WithTransLate text={title} />
                     </Typography>
                   </div>
@@ -393,10 +399,10 @@ export default function PhotoGallery({
               
           </Box>
         </div>
-        <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
+        <div style={{display:"flex",justifyContent:"center", width:"100%",marginTop:"20px"}}>
               <Button
                 text="VIEW GALLERY"
-                btnClass="btnLightWithOut"
+                btnClass={isMobile?"btnLight":"btnLightWithOut"}
                 handleClick={() =>
                   window.open("https://www.instagram.com/bluehousebb/", "_blank")
                 }

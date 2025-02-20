@@ -19,6 +19,7 @@ import NewsLetter from "../../components/NewsLetter/NewsLetter.jsx";
 import FindMore from "../../components/FindMore/FindMore.jsx";
 
 import s from "./HomePage.module.scss";
+import CallUs from "../../components/CallUs/CallUs.jsx";
 
 const useStyles = makeStyles((theme) => ({
   galleryButton: {
@@ -116,7 +117,7 @@ export default function HomePage() {
         maxWidth={"100vw"}
         minWidth={"220px"}
       />
-      
+      {isMobile?<CallUs/>:<></>}
       <AboutUs />
       <ReviewSlider />
       <Recommendations />

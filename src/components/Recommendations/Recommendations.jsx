@@ -14,13 +14,16 @@ import s from "./Recommendations.module.scss";
 import Button from "../Shared/Button/Button";
 
 const Recommendations = () => {
-  const { isTablet, isDesktop } = useBreakpoints();
+  const { isMobile, isTablet, isDesktop } = useBreakpoints();
   const prevSlide = ()=>{
+    
     const section = document.getElementById('imagesSection')
+    
     section.scrollBy(-440,0)
   }
   const nextSlide = (e)=>{
     const section = document.getElementById('imagesSection')
+    console.log(section.style.width)
     section.scrollBy(440,0)
   }
   const recommendationsData = [
@@ -81,8 +84,8 @@ const Recommendations = () => {
                   className={s.image}
                 />
               </a>
-              <span className={s.text}>
-                <WithTransLate text={name} />
+              <span className={s.text} style={name=="Northern Lights"&&isMobile?{marginLeft:"-80%"}:{}}>
+                <WithTransLate text={name}/>
               </span>
             </div>
           ))}
@@ -102,16 +105,42 @@ const Recommendations = () => {
         </div>
       </div>
       </div>
-      <div style={{display:"flex",justifyContent:"center", width:"100%", marginTop:"5%"}} >
+      <div style={{display:"flex",justifyContent:"center", width:"100%", marginTop:"20px"}} >
         <Button
             text="DISCOVER MORE"
-            btnClass="btnLightWithOut"
+            btnClass={isMobile?"btnLight":"btnLightWithOut"}
             handleClick={() =>
               window.open("https://www.instagram.com/bluehousebb/", "_blank")
             }
         />
       </div>
-      
+      {isMobile && 
+        <div className={s.mobileSection}>
+          <div className={s.elem}>
+            <h4>Don't know which one to choose?</h4>
+            <p style={{textAlign:"center"}}>Leave the request and we will get<br/> back to you</p>
+            <Button
+            text="I need Help"
+            btnClass="btnLight"
+            handleClick={() =>
+              window.open("https://www.instagram.com/bluehousebb/", "_blank")
+            } 
+            />
+          </div>
+          <div className={s.elem}>
+          <h4>Need recommendations?</h4>
+            <p style={{textAlign:"center"}}>For recommendations & adventures <br/>read amazing stories in our blog</p>
+            <Button
+            text="Reed blog"
+            btnClass="btnLight"
+            handleClick={() =>
+              window.open("https://www.instagram.com/bluehousebb/", "_blank")
+            } 
+            />
+          </div>
+        </div>
+        
+      }
     </div>
   );
 };
