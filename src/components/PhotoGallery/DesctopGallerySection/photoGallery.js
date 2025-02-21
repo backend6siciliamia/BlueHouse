@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     
     width:"95%",
-    paddingLeft:"3%",
+    // paddingLeft:"1%",
     [theme.breakpoints.down("md")]: {
       flexDirection:"column"
     },
@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
   }),
   photoWrapper: (props) => ({
     position: "relative",
-    maxWidth: props.maxWidth,
-    minWidth: props.minWidth,
+    // maxWidth: props.maxWidth,
+    // minWidth: props.minWidth,
     backgroundSize: "cover",
     display: "flex",
     fontFamily: "Josefin Sans",
@@ -41,11 +41,11 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     "& img": {
-      width: "100%",
+      width: "100vw",
     },
     [theme.breakpoints.down("xs")]: {
       flexDirection:"column",
-      minWidth: "100%",
+      minWidth: "100%", 
     },
   }),
 
@@ -64,10 +64,10 @@ const useStyles = makeStyles((theme) => ({
       overflow: "hidden", 
       padding: "4px",
       width: "100%",
-      gap: "0%",
       display:"flex",
-      justifyContent: "space-between",
-      // paddingLeft: "3%",
+      gap:"0%",
+      marginLeft:"2%",
+      paddingRight: "-4%",
     },
   }),
   titleStyle: (props) => ({
@@ -174,7 +174,7 @@ const useStyles = makeStyles((theme) => ({
       maxHeight: "100%",
     },
     "& img": {
-      width: "100%",
+      width: "97vw",
     },
   },
   
@@ -249,11 +249,12 @@ export default function PhotoGallery({
   
   const prevSlide = ()=>{
     const section = document.getElementById('imagesContainer')
-    section.scrollBy(-375,0)
+    console.log(window.screen.width)
+    section.scrollBy(-window.screen.width,0)
   }
   const nextSlide = (e)=>{
     const section = document.getElementById('imagesContainer')
-    section.scrollBy(375,0)
+    section.scrollBy(window.screen.width,0)
   }
   const {
     hoverPart,
@@ -387,7 +388,7 @@ export default function PhotoGallery({
                         />
                       </div>
                     )}
-                    <img alt="ph" src={background} className={hoverImage} style={{width:"94%"}} />
+                    <img alt="ph" src={background} className={hoverImage}/>
                     <Typography className={clsx(styling, category)} style={isMobile?{color:"white"}:{color:"#1D3967"}}>
                       <WithTransLate text={title} />
                     </Typography>

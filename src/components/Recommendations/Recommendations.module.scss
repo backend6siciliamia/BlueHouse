@@ -3,7 +3,7 @@
   margin-left: auto;
   margin-right: auto;
   @media (min-width: 320px) and (max-width: 599.99px) {
-    width: 92%;
+    width: 100%;
     margin-bottom: 50px;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
@@ -23,7 +23,7 @@
   display: flex;
   width: 100%;
   flex-direction: column;
- 
+  
   @media (min-width: 1280px) and (max-width: 2200px) {
     
     flex-direction: row;
@@ -36,10 +36,11 @@
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    gap: 80px;
     overflow: hidden;
     padding: 2px;
-    min-width: 100%;
+    width:97vw;
+    gap: 1%;
+    margin-left: 1%;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-top: 20px;
@@ -93,6 +94,7 @@
     font-size: 20px;
     font-weight: 900;
     letter-spacing: 0.1em;
+    padding-left: 2%;
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     position: absolute;

@@ -9,7 +9,7 @@ import bld from "../../images/RECOMMENDATIONS/Blue-lagoon01.webp";
 import gcd from "../../images/RECOMMENDATIONS/Glacier-Caves01.webp";
 import restd from "../../images/RECOMMENDATIONS/Geysers01.webp";
 import rest from "../../images/RECOMMENDATIONS/Geysers.webp";
-
+import blogImg from "../../images/Blog/island.webp"
 import s from "./Recommendations.module.scss";
 import Button from "../Shared/Button/Button";
 
@@ -19,12 +19,12 @@ const Recommendations = () => {
     
     const section = document.getElementById('imagesSection')
     
-    section.scrollBy(-440,0)
+    section.scrollBy(-window.screen.width+3,0)
   }
   const nextSlide = (e)=>{
     const section = document.getElementById('imagesSection')
     console.log(section.style.width)
-    section.scrollBy(440,0)
+    section.scrollBy(window.screen.width-3,0)
   }
   const recommendationsData = [
     {
@@ -84,7 +84,7 @@ const Recommendations = () => {
                   className={s.image}
                 />
               </a>
-              <span className={s.text} style={name=="Northern Lights"&&isMobile?{marginLeft:"-80%"}:{}}>
+              <span className={s.text} style={{marginLeft:"-80%"}}>
                 <WithTransLate text={name}/>
               </span>
             </div>
@@ -128,10 +128,11 @@ const Recommendations = () => {
             />
           </div>
           <div className={s.elem}>
-          <h4>Need recommendations?</h4>
+            <img src={blogImg} style={{width:"80%"}}/>
+          <h4 style={{marginTop:"6%"}}>Need recommendations?</h4>
             <p style={{textAlign:"center"}}>For recommendations & adventures <br/>read amazing stories in our blog</p>
             <Button
-            text="Reed blog"
+            text="Read blog"
             btnClass="btnLight"
             handleClick={() =>
               window.open("https://www.instagram.com/bluehousebb/", "_blank")
