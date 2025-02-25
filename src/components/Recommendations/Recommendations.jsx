@@ -19,12 +19,11 @@ const Recommendations = () => {
     
     const section = document.getElementById('imagesSection')
     
-    section.scrollBy(-window.screen.width+3,0)
+    section.scrollBy(-window.screen.width,0)
   }
   const nextSlide = (e)=>{
     const section = document.getElementById('imagesSection')
-    console.log(section.style.width)
-    section.scrollBy(window.screen.width-3,0)
+    section.scrollBy(window.screen.width,0)
   }
   const recommendationsData = [
     {

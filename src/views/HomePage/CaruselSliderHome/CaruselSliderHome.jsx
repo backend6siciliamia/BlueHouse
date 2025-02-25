@@ -151,18 +151,16 @@ const CaruselSliderHome = () => {
           overflow: "hidden",
         }}
       >
-        {!isMobile && (
-          <div
-            className={`${s.arrowButton} ${s.arrowButtonLeft}`}
-            onClick={goToPreviousSlide}
-          >
-            <FiChevronLeft
-              size={60}
-              strokeWidth={1}
-              className={s.arrowlinkLeft}
-            />
-          </div>
-        )}
+      <div
+          className={`${s.arrowButton} ${s.arrowButtonLeft}`}
+          onClick={goToPreviousSlide}
+        >
+          <FiChevronLeft
+            size={60}
+            strokeWidth={1}
+            className={s.arrowlinkLeft}
+          />
+      </div>
         {showPlaceholder && !isPlaceholderShown && (
           <img
             src={placeholder}
@@ -196,7 +194,6 @@ const CaruselSliderHome = () => {
             />
           )
         )}
-        {!isMobile && (
           <div
             className={`${s.arrowButton} ${s.arrowButtonRight}`}
             onClick={goToNextSlide}
@@ -207,7 +204,6 @@ const CaruselSliderHome = () => {
               className={s.arrowlinkRigth}
             />
           </div>
-        )}
         {renderPagination()}
       </div>
     </div>

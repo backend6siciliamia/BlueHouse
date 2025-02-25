@@ -4,6 +4,8 @@ import "./BookingWrapper.css";
 import { WithTransLate } from "../../components/helpers/translating";
 import useBreakpoints from "../../Styles/useBreakpoints";
 import { Typography } from "@mui/material";
+import { CiCalendar } from "react-icons/ci";
+import { CiUser } from "react-icons/ci";
 
 const BookingWrapper = () => {
   const { isMobile, isTablet } = useBreakpoints();
@@ -23,8 +25,15 @@ const BookingWrapper = () => {
         <WithTransLate sx={{}} text="BOOK YOUR ROOM" />
       </Typography>
           <form style={{display:"flex",flexDirection:"column",width:"100%",margin:"auto"}}>
-            <input style={{borderColor:"#1D3967",borderRadius:"0px",borderBottom:"none",height:"50px"}} placeholder="Check in - Check out"/>
-            <input style={{borderColor:"#1D3967",borderRadius:"0px",height:"50px"}} placeholder="Travellers"/>
+            <div>
+              <input style={{borderColor:"#1D3967",borderRadius:"0px",borderBottom:"none",height:"50px",paddingLeft:"12%"}} placeholder="Chech-in Check-out"/>
+              <CiCalendar size="30px" style={isMobile?{position:"absolute",left:"0",marginTop:"2%",marginLeft:"6%"}:{position:"absolute",left:"0",marginTop:"1%",marginLeft:"17%"}}/>
+            </div>
+            <div>
+              <input style={{borderColor:"#1D3967",borderRadius:"0px",height:"50px",paddingLeft:"12%"}} placeholder="Travellers"/>
+              <CiUser size="30px" style={isMobile?{position:"absolute",left:"0",marginTop:"2%",marginLeft:"6%"}:{position:"absolute",left:"0",marginTop:"1%",marginLeft:"17%"}}/>
+            </div>
+            
             <div style={{marginTop:"5%",display:"flex",justifyContent:"center"}}>
               <Button text="Search" btnClass="btnDark"/>
             </div>

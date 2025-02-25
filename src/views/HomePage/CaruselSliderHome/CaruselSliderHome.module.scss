@@ -94,20 +94,25 @@
 
 .arrowButtonLeft {
   position: absolute;
-  margin-left: 20px;
+  margin-left: 2%;
   top: 47%;
   left: 0;
   z-index: 2;
+  @media (max-width: 960px) {
+    top: 40%;
+  }
 }
 
 .arrowButtonRight {
   position: absolute;
   top: 47%;
   right: 0;
-  margin-right: 20px;
+  margin-right: 2%;
   z-index: 2;
+  @media (max-width: 960px) {
+    top: 40%;
+  }
   @media (min-width: 960px) {
-    
     margin-right: 10%;
   }
 }

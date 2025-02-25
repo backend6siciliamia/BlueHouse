@@ -23,9 +23,7 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  
   @media (min-width: 1280px) and (max-width: 2200px) {
-    
     flex-direction: row;
   }
 }
@@ -38,9 +36,9 @@
     flex-direction: row;
     overflow: hidden;
     padding: 2px;
-    width:97vw;
-    gap: 1%;
-    margin-left: 1%;
+    width: 98vw;
+    gap: 6%;
+    margin-left: 0%;
   }
   @media (min-width: 600px) and (max-width: 959.99px) {
     margin-top: 20px;
@@ -73,6 +71,8 @@
   justify-content: "space-between";
   @media (min-width: 320px) and (max-width: 599.99px) {
     flex-direction: row;
+    width: 98vw;
+  
   }
   @media (min-width: 1280px) and (max-width: 2200px) {
     width: 27%;

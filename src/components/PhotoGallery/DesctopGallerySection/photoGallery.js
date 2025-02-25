@@ -63,10 +63,10 @@ const useStyles = makeStyles((theme) => ({
       flexDirection:"row",
       overflow: "hidden", 
       padding: "4px",
-      width: "100%",
+      width: "100vw",
       display:"flex",
-      gap:"0%",
-      marginLeft:"2%",
+      gap:"2%",
+      marginLeft:"0%",
       paddingRight: "-4%",
     },
   }),
@@ -388,7 +388,7 @@ export default function PhotoGallery({
                         />
                       </div>
                     )}
-                    <img alt="ph" src={background} className={hoverImage}/>
+                    <img alt="ph" src={background} className={hoverImage} style={{width:"100%"}}/>
                     <Typography className={clsx(styling, category)} style={isMobile?{color:"white"}:{color:"#1D3967"}}>
                       <WithTransLate text={title} />
                     </Typography>
