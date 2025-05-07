@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useBreakpoints from "../../Styles/useBreakpoints";
 import { WithTransLate } from "..//helpers/translating/index";
 import SliderPreviewPhoto from "./SliderPreviewPhoto/SliderPreviewPhoto";
@@ -13,11 +13,20 @@ import {
 } from "../../redux/dataSearch/dataSearch-selectors";
 
 import s from "./ServicesRoom.module.scss";
+import { getPropertiesData } from "../../redux/properties/properties-selectors";
+import { getProperties } from "../../redux/properties/properties-operations";
 
 const ServicesRoom = () => {
   const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
   const { room: roomNumber } = useSelector(getAddParams);
   const days = useSelector(getDayDifference);
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getProperties([])); // <-- THIS triggers the thunk and the API call
+  }, [dispatch]);
+
+  const properties = useSelector(state => state.properties.properties);
+
 
   const history = useHistory();
 
@@ -26,8 +35,8 @@ const ServicesRoom = () => {
     history.push(relativePath);
   };
 
-  const roomItems = items.filter((item) => item.type === "room");
-  const houseItems = items.filter((item) => item.type === "house");
+  const roomItems = properties.filter((item) => item.type === "room");
+  const houseItems = properties.filter((item) => item.type === "house");
 
   const splitServices = (services) => {
     const middleIndex = Math.ceil(services.length / 2);

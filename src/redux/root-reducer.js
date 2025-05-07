@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import dataSearchReducer from "./dataSearch/dataSearch-slice";
 import bookingReducer from "./booking/booking-slice";
+import propertiesReducer from "./properties/properties-slice";
 import technicalReducer from "./technitial/technical-slice";
 import userInfoReducer from "./userInfo/userInfo-slice";
 import storage from "redux-persist/lib/storage";
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   userInfo: userInfoReducer,
   technical: technicalReducer,
   booking: bookingReducer,
+  properties: propertiesReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
