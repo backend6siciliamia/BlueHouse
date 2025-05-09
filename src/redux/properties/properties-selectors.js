@@ -1,2 +1,2 @@
-export const getErrorProperties = ({ properties }) => properties.error;
-export const getPropertiesData = ({ properties }) => properties.properties;
+export const getErrorProperties = (state) => state.properties?.error || null;
+export const getPropertiesData = (state) => state.properties?.properties || [];

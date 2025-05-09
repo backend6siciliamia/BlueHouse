@@ -20,7 +20,7 @@ const BookingWrapper = () => {
         />
       </p>
       <div className="buttons">
-        <a href="https://beds24.com/booking2.php?propid=3578&layout=1">
+        <a href="http://localhost:3000/beds24">
           <Button text="BOOK YOUR ROOM" btnClass="btnDark" width="218px" />
         </a>
         <div className="ordial">

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getProperties } from "./properties-operations";
 
-
 const initialState = {
   error: null,
   message: null,
@@ -31,25 +30,25 @@ const properties = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    // * GET ALL PROPERTIES
-        .addCase(getProperties.pending, (store) => {
-            store.loading = true;
-            store.error = null;
-            store.properties = null;
-        })
-        .addCase(getProperties.fulfilled, (store, { payload }) => {
-            console.log("::::::PAYLOAD::::::", payload)
-            store.loading = false;
-            store.properties = payload;
-            store.error = null;
-        })
-        .addCase(getProperties.rejected, (store, { payload }) => {
-            store.loading = false;
-            store.error = payload?.data?.message || "Oops, something went wrong, try again";
-        });
+      // * GET ALL PROPERTIES
+      .addCase(getProperties.pending, (store) => {
+        store.loading = true;
+        store.error = null;
+        store.properties = [];
+      })
+      .addCase(getProperties.fulfilled, (store, { payload }) => {
+        console.log("::::::PAYLOAD::::::", payload);
+        store.loading = false;
+        store.properties = payload;
+        store.error = null;
+      })
+      .addCase(getProperties.rejected, (store, { payload }) => {
+        store.loading = false;
+        store.error =
+          payload?.data?.message || "Oops, something went wrong, try again";
+      });
   },
 });
 
 export default properties.reducer;
-export const { clearError, clearMessage } =
-properties.actions;
+export const { clearError, clearMessage } = properties.actions;

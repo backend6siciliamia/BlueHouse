@@ -8,7 +8,7 @@ export const getProperties = createAsyncThunk(
       const data = await axiosGetProperties();
       return data;
     } catch (error) {
-      const { data, status } = error.response;
+      const { data, status } = error.response || {};
       return rejectWithValue({ data, status });
     }
   }

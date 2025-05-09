@@ -20,13 +20,12 @@ const ServicesRoom = () => {
   const { isMobile, isTablet, isLaptop, isDesktop } = useBreakpoints();
   const { room: roomNumber } = useSelector(getAddParams);
   const days = useSelector(getDayDifference);
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(getProperties([])); // <-- THIS triggers the thunk and the API call
-  }, [dispatch]);
+  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getProperties([])); // <-- THIS triggers the thunk and the API call
+  // }, [dispatch]);
 
-  const properties = useSelector(state => state.properties.properties);
-
+  const rooms = useSelector((state) => state.technical.rooms);
 
   const history = useHistory();
 
@@ -35,8 +34,8 @@ const ServicesRoom = () => {
     history.push(relativePath);
   };
 
-  const roomItems = properties.filter((item) => item.type === "room");
-  const houseItems = properties.filter((item) => item.type === "house");
+  const roomItems = rooms.filter((item) => item.type === "room");
+  const houseItems = rooms.filter((item) => item.type === "house");
 
   const splitServices = (services) => {
     const middleIndex = Math.ceil(services.length / 2);

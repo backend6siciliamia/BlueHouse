@@ -41,5 +41,5 @@
 //   },
 // };
 
-//npx eslint ./src --ext .js,.jsx
-//npx eslint . --fix
+// npx eslint ./src --ext .js,.jsx
+// npx eslint . --fix

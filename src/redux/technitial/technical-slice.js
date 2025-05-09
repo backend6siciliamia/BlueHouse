@@ -8,6 +8,7 @@ const initialState = {
   isPlaceholderShown: false,
   paymentStage: 1,
   bookingConfirmed: false,
+  rooms: [],
 };
 
 const technical = createSlice({
@@ -48,6 +49,7 @@ const technical = createSlice({
       })
       .addCase(getRoomsData.fulfilled, (store, { payload }) => {
         store.loading = false;
+        store.rooms = payload;
       })
       .addCase(getRoomsData.rejected, (store, { payload }) => {
         store.loading = false;

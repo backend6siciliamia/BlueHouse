@@ -112,7 +112,7 @@ export default function Header({ right, setRight, top, setTop }) {
               ) : (
                 <>
                   <a
-                    href="https://beds24.com/booking2.php?propid=3578&layout=1"
+                    href="http://localhost:3000/beds24"
                     target="_blank"
                     rel="noreferrer"
                   >
